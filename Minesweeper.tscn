@@ -1,0 +1,142 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Minesweeper.gd" type="Script" id=1]
+
+[node name="Minesweeper" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Tiles" type="Node2D" parent="."]
+
+[node name="RestartButton" type="Button" parent="."]
+margin_right = 62.0
+margin_bottom = 20.0
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MinesLeftLabel" type="Label" parent="."]
+margin_left = 64.0
+margin_top = 4.0
+margin_right = 135.0
+margin_bottom = 18.0
+text = "Mines Left:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MinesLeft" type="Label" parent="."]
+margin_left = 136.0
+margin_top = 4.0
+margin_right = 163.0
+margin_bottom = 18.0
+text = "000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MineDensityLabel" type="Label" parent="."]
+margin_left = 4.0
+margin_top = 24.0
+margin_right = 97.0
+margin_bottom = 38.0
+text = "Mine Density: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MineDensity" type="Label" parent="."]
+margin_left = 568.0
+margin_top = 24.0
+margin_right = 596.0
+margin_bottom = 38.0
+text = "0.00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="."]
+margin_left = 100.0
+margin_top = 24.0
+margin_right = 724.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.75, 0.75 )
+min_value = 0.01
+max_value = 0.99
+step = 0.01
+value = 0.2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EndText" type="Label" parent="."]
+visible = false
+margin_left = 180.0
+margin_top = 300.0
+margin_right = 254.0
+margin_bottom = 314.0
+rect_scale = Vector2( 4, 4 )
+custom_colors/font_color = Color( 0, 1, 0, 1 )
+text = "You Won!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 514.0
+margin_top = 4.0
+margin_right = 582.0
+margin_bottom = 18.0
+text = "Auto-start:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_left = 582.0
+margin_top = 2.0
+margin_right = 606.0
+margin_bottom = 26.0
+rect_scale = Vector2( 0.75, 0.75 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoardSizeLabel" type="Label" parent="."]
+margin_left = 220.0
+margin_top = 4.0
+margin_right = 291.0
+margin_bottom = 18.0
+text = "Board Size:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BSSlider" type="HSlider" parent="."]
+margin_left = 296.0
+margin_top = 4.0
+margin_right = 464.0
+margin_bottom = 20.0
+rect_scale = Vector2( 0.75, 0.75 )
+min_value = 5.0
+max_value = 30.0
+step = 5.0
+value = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoardSize" type="Label" parent="."]
+margin_left = 424.0
+margin_top = 4.0
+margin_right = 444.0
+margin_bottom = 18.0
+text = "30"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]
+[connection signal="value_changed" from="BSSlider" to="." method="_on_BSSlider_value_changed"]
